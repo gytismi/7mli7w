@@ -53,6 +53,7 @@ factorial (generic function with 1 method)
 julia> factorial(4)
 24
 ```
+Parallel:
 ```julia
 @everywhere function p_factorial(number :: Int64)
    @distributed (*) for n in 1:number
