@@ -38,8 +38,9 @@ julia> pmap(tries -> sum(rand(Bool, tries)), [2, 4, 6])
 **Do (Medium):**
 - Write a factorial function as a parallel for loop.
 	- a factorial is the number of possible combinations with numbers less than or equal to that number
+
+ Non-parallel:
 ```julia
-%% Non-parallel %%
 julia> function factorial(number :: Int64)
            f = 1
            for n in 1:number
@@ -51,9 +52,8 @@ factorial (generic function with 1 method)
 
 julia> factorial(4)
 24
-
-%% Parallel %%
-
+```
+```julia
 @everywhere function p_factorial(number :: Int64)
    @distributed (*) for n in 1:number
 	   n
